@@ -15,8 +15,11 @@ int main(){
     while(l<=r){
         int mid=(l+r)/2;
         if(arr[mid]==k){
-            count++;
+            if( (mid-1>=0 && arr[mid-1]==k) || (mid+1<n & arr[mid+1] == k )){
+                count++;
             l=mid+1;
+            }
+            
         }
         else if(k>arr[mid]){
             l=mid+1;
@@ -25,7 +28,7 @@ int main(){
             r=mid-1;
         }
     }
-    if(count>1){
+    if(count>=1){
         cout<<"YES"<<endl;
     }
     else {
